@@ -95,7 +95,7 @@ const deleteQuestion = async (req, res) => {
         if (response){
             let flag = false
             if (response.options.length > 0) {
-                for (let option of response.Options) {
+                for (let option of response.options) {
                     if (option.Vote > 0) {
                         check = true;
                     }
