@@ -87,12 +87,14 @@ const createOptions = async (req, res) => {
 // delete a question with 
 const deleteQuestion = async (req, res) => {
     console.log("Delete Question");
+    paramsContent = req.params.id
+    const check = false;
     if (paramsContent) {
+        const response = await Question.findOne({ _id: req.params.id }).populate("options");
         // find the question by id
-        const paramsContent = await Question.findOne({ _id: req.params.id }).populate("options");
         if (response){
             let flag = false
-            if (response.option.length > 0) {
+            if (response.options.length > 0) {
                 for (let option of response.Options) {
                     if (option.Vote > 0) {
                         check = true;
@@ -111,7 +113,6 @@ const deleteQuestion = async (req, res) => {
     }else{
         return res.status(406).send("Please provide id in params");
     }
-
 }
 
 
