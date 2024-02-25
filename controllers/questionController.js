@@ -113,7 +113,6 @@ const deleteQuestion = async (req, res) => {
     }else{
         return res.status(406).send("Please provide id in params");
     }
-
 }
 
 

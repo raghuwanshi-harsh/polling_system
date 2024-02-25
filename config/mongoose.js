@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://127.0.0.1:27017/polling_system_api');
+mongoose.connect('mongodb+srv://dbuser:dbuserpass@cluster0.9ekmoeb.mongodb.net/');
 
 const db = mongoose.connection;
 
